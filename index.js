@@ -46,6 +46,14 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('active');
+        
+        // Animate coding metric progress bars if present in the card
+        const progressFills = entry.target.querySelectorAll('.metric-progress-fill');
+        progressFills.forEach(fill => {
+          const widthVal = fill.getAttribute('data-width');
+          fill.style.width = widthVal;
+        });
+
         // Once animated, we can stop observing this specific element
         observer.unobserve(entry.target);
       }

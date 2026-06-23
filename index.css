@@ -1124,6 +1124,172 @@ header {
   padding-top: var(--space-md);
 }
 
+/* Custom Visual Graphics & SVG Animations */
+.hero-svg-container {
+  width: 100%;
+  max-width: 420px;
+  position: relative;
+  z-index: 2;
+  aspect-ratio: 1;
+}
+
+.hero-interactive-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 15px hsla(263, 90%, 60%, 0.2));
+}
+
+/* Floating animation for central SVG elements */
+.svg-float {
+  animation: svgFloat 6s ease-in-out infinite alternate;
+}
+
+.svg-rotate {
+  animation: svgRotate 25s linear infinite;
+  transform-origin: 200px 200px;
+}
+
+.svg-pulse {
+  animation: svgPulse 3.5s ease-in-out infinite alternate;
+}
+
+/* Connection line dashes animation */
+.svg-dash {
+  stroke-dasharray: 8, 8;
+  animation: dashAnimation 35s linear infinite;
+}
+
+@keyframes svgFloat {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-12px); }
+}
+
+@keyframes svgRotate {
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes svgPulse {
+  0% { opacity: 0.35; }
+  100% { opacity: 0.95; }
+}
+
+@keyframes dashAnimation {
+  to {
+    stroke-dashoffset: -1000;
+  }
+}
+
+/* Project SVG headers */
+.project-svg-wrap {
+  width: 100%;
+  height: 140px;
+  background: var(--accent-light);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  position: relative;
+  transition: background-color var(--transition-normal);
+}
+
+.project-svg-wrap svg {
+  width: 70px;
+  height: 70px;
+  stroke: var(--accent);
+  fill: none;
+  stroke-width: 1.5;
+  transition: all var(--transition-normal);
+}
+
+.project-card:hover .project-svg-wrap {
+  background: hsla(263, 90%, 60%, 0.18);
+}
+
+.project-card:hover .project-svg-wrap svg {
+  transform: scale(1.12) rotate(4deg);
+  stroke: var(--accent-secondary);
+}
+
+/* Metric Progress Styling */
+.metric-progress-container {
+  margin-top: var(--space-sm);
+  width: 100%;
+}
+
+.metric-progress-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.metric-progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.metric-progress-fill {
+  height: 100%;
+  background: var(--accent-gradient);
+  border-radius: var(--radius-full);
+  width: 0%; /* Dynamic fill */
+  transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hackathons & Workshops Grid */
+.hackathons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.hackathon-card {
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  border-left: 4px solid var(--accent-secondary);
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+}
+
+.hack-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--accent-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-secondary);
+  flex-shrink: 0;
+}
+
+.hack-icon-box svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+.hack-content h4 {
+  font-size: 1.1rem;
+  margin-bottom: var(--space-xs);
+}
+
+.hack-content p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
 /* Fade-In and Scroll Animations using JS IntersectionObserver */
 .reveal {
   opacity: 0;
